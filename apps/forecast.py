@@ -82,10 +82,12 @@ subset = data[(data.index.date >= start_date) &
 data_loading.text("")
 
 
+@st.cache_data
 def samples(df):
     return df.sample(N_SAMPLES, axis="columns").reset_index().melt(id_vars='ds')
 
 
+@st.cache_data
 def mean(df):
     return df.mean(axis="columns")
 
